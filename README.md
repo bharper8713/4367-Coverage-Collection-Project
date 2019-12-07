@@ -4,3 +4,7 @@
 
 Team Members:
 Adrian Dizon and Brenden Harper
+
+Status:
+Phase 1 is currently complete
+Phase 2 will be started soon
