@@ -34,7 +34,7 @@ public class Listener4367 extends RunListener
 			
 		//designates the file as the file that writer will write to
 		writer = new FileWriter(fileAddress,false);
-	}	
+	}
 	
 	//Called when a test starts
 	public void testStarted(Description description) throws Exception
