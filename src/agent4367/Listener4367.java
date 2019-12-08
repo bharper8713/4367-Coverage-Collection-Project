@@ -10,6 +10,7 @@ import agent4367.Coverage;
 public class Listener4367 extends RunListener
 {
 	static FileWriter writer;
+	static FileWriter writerVars;
 	
 	//address of the file in the UTD Unix server under my (Adrian Dizon's) personal drive
 	//String fileAddress = "/home/010/a/am/amd160530/4367/Project/stmt-cov.txt";
@@ -30,10 +31,20 @@ public class Listener4367 extends RunListener
 		else
 			output.createNewFile();
 			
-		//System.out.println("stmt-cov.txt has been created");
-			
 		//designates the file as the file that writer will write to
 		writer = new FileWriter(fileAddress,false);
+		
+		//PHASE 2
+		//initializes the file to write the variables to
+		File outputVars = new File(fileAddress);
+		
+		if (outputVars.exists())
+			outputVars.delete();
+		else
+			outputVars.createNewFile();
+		
+		//designates the file as the file that writer will write to
+		writerVars = new FileWriter(fileAddress,false);
 	}
 	
 	//Called when a test starts
