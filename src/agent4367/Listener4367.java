@@ -17,6 +17,7 @@ public class Listener4367 extends RunListener
 	
 	//if running on windows, I guess comment out the first fileAddress init and use the 2nd one
 	String fileAddress = "stmt-cov.txt";
+	String fileAddress2 = "invariants.txt";
 	
 	//Runs at the beginning of the run, called by the pom file
 	public void testRunStarted(Description description) throws Exception 
@@ -36,7 +37,7 @@ public class Listener4367 extends RunListener
 		
 		//PHASE 2
 		//initializes the file to write the variables to
-		File outputVars = new File(fileAddress);
+		File outputVars = new File(fileAddress2);
 		
 		if (outputVars.exists())
 			outputVars.delete();
@@ -44,13 +45,14 @@ public class Listener4367 extends RunListener
 			outputVars.createNewFile();
 		
 		//designates the file as the file that writer will write to
-		writerVars = new FileWriter(fileAddress,false);
+		writerVars = new FileWriter(fileAddress2,false);
 	}
 	
 	//Called when a test starts
 	public void testStarted(Description description) throws Exception
 	{
 		writer.write("Testing " + description.getClassName()+ ":" + description.getMethodName() + System.lineSeparator());
+		writerVars.write("Testing " + description.getClassName()+ ":" + description.getMethodName() + System.lineSeparator());
 		//System.out.println("testStarted has been executed");
 	}
 	
@@ -58,6 +60,7 @@ public class Listener4367 extends RunListener
 	public void testFinished(Description description) throws Exception
 	{
 		Coverage.writeToFile(writer);
+		Coverage.writeVarsToFile(writerVars);
 		//System.out.println("testFinished has been executed, Coverage has been called");
 	}
 		
@@ -65,6 +68,7 @@ public class Listener4367 extends RunListener
 	public void testRunFinished(Result result) throws Exception
 	{
 		writer.close();
+		writerVars.close();
 		//System.out.println("testRunFinished has been executed");
 	}	
 }

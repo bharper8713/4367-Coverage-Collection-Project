@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/amd160530/Documents/Classes/19F [Current]/QA/asm-7.2-beta.jar"/>
 	<classpathentry kind="lib" path="C:/Users/amd160530/Documents/Classes/19F [Current]/QA/junit-4.13-rc-2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/amd160530/Documents/Classes/19F [Current]/QA/asm-commons-7.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
